@@ -10,17 +10,25 @@
 /*main & posts */
 
 body{
-    background-color: #bc4749;
+    background-color: #def2f1;
+}
+
+.col{
+    width: 50%;
+    justify-content: space-between;
+    border-radius: 20%;
+    padding: 25px;
 }
 
 .post .post-img{
     width: 100%;
+    padding-top: 0px;
     height: 350px;
     object-fit: cover;
 }
 
 .user-info img{
-    width: 2.5rem;
+    width: 2.3rem;
     border-radius: 50%;
 }
 
@@ -33,30 +41,33 @@ body{
 
 .user-info span{
     margin-left: 0.5rem;
-    color:white;
+    color:black;
 }
 
 .user-info span:nth-child(4){
-    color: whitesmoke;
+    color: darkblue;
 }
 
 .post p{
     font-size: 0.9rem;
     line-height: 1.5rem;
-    opacity: 0.6;
+    opacity: 0.6;;
     text-align: justify;
+    
 }
 
 .post{
-    background-color:#f2e8cf;
+    margin-top: 3rem;
+    background-color:whitesmoke;
+    transition: 0.1s;
     box-shadow: rgba(0,0,0,0.1) 0px 10px 15px -3px,rgba(0,0,0,0.05) 0px 4px 6px -2px;
 }
 
 .post-info{
-    padding: 1rem;
+    padding: 2rem;
 }
 
-.container-main{
+.container{
     display: flex;
     justify-content: space-between;
     padding: 0 0.875rem;
@@ -68,3 +79,6 @@ body{
     cursor:pointer;
 }
 
+.post:hover{
+    transform:scale(1.1);
+  }

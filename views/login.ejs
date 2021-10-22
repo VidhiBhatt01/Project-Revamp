@@ -1,0 +1,25 @@
+<%- include('header'); -%>
+
+    <div>Login</div>
+    <div id="sawo-container" style="width: 550px; height: 400px"></div>
+
+    <script src="https://websdk.sawolabs.com/sawo.min.js"></script>
+    <script>
+        const payload = sessionStorage.getItem("payload");
+        if (payload) {
+            window.location.href = "/success";
+        }
+        var config = {
+            containerID: "sawo-container",
+            identifierType: "email",
+            apiKey: "6e72516e-0231-4abd-b90f-65d38ce8db45",
+            onSuccess: (payload) => {
+                sessionStorage.setItem("payload", JSON.stringify(payload));
+                window.location.href = "/success";
+            },
+        };
+        var sawo = new Sawo(config);
+        sawo.showForm();
+    </script>
+
+    <%- include('footer'); -%>

@@ -18,6 +18,7 @@
   "type": "module",
   "homepage": "https://github.com/kavania2002/revamp#readme",
   "dependencies": {
+    "@trycourier/courier": "^2.7.0",
     "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",

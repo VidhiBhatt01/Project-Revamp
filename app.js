@@ -20,8 +20,6 @@ app.set('views', path.join(__dirname, '/views'));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 var payload = null;
-var username = null;
-var logged = false;
 
 mongoose.connect("mongodb+srv://admin-kavan:" + process.env.MONGOKEY + "@cluster0.ke92r.mongodb.net/revampers").then(() => console.log("Connected")).catch(err => console.log(err));
 
@@ -34,14 +32,13 @@ const User = new mongoose.model("User", userSchema);
 
 app.get("/", (req, res) => {
     const payloadCookies = req.cookies["payload"];
-    if (payloadCookies != "undefined" && payloadCookies != undefined) {
+    if (payloadCookies != undefined) {
         payload = JSON.parse(payloadCookies);
         // console.log("In backend");
         // console.log(payload);
         if (payload != undefined) {
             const { identifier, customFieldInputValues } = payload;
             const fName = customFieldInputValues["Full Name"];
-            username = identifier;
 
             User.findOne({ username: identifier }, ((err, foundUser) => {
                 if (err) console.log(err);
@@ -68,39 +65,33 @@ app.get("/", (req, res) => {
                     newUser.save();
                 }
             }));
-            logged = true;
-            res.render("index", { logged: true, username: username });
+            res.render("index");
         } else {
-            res.render("index", { logged: false, username: username });
+            res.redirect("/login");
         }
     } else {
-        res.render("index", { logged: false, username: username });
+        res.redirect("/login");
     }
 });
 
 app.get("/flauntZone", (req, res) => {
-    res.render("flaunt_zone", { logged: logged, username: username });
+    res.render("flaunt_zone");
 });
 
 app.get("/diyAcademy", (req, res) => {
-    res.render("diy_academy", { logged: logged, username: username });
+    res.render("diy_academy");
 });
 
 app.get("/blogs", (req, res) => {
-    res.render("blogs", { logged: logged, username: username });
+    res.render("blogs");
 });
 
 app.get("/bazaar", (req, res) => {
-    res.render("bazaar", { logged: logged, username: username });
+    res.render("bazaar");
 });
 
 app.get("/login", (req, res) => {
-    res.render("login", { logged: logged, username: username });
-});
-
-app.get("/logout", (req, res) => {
-    res.cookie("payload", undefined);
-    res.redirect("/");
+    res.render("login");
 });
 
 app.listen("3000", console.log("Listening on port 3000"));

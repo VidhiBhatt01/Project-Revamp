@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open sans',sans-serif;
+}
+
+.main{
+    background-color: rgb(177, 233, 255);
+}
+
+.upcoming {
+    display: grid;
+}
+
+.event {
+    background-color: #1ea4da;
+    margin-bottom: 20px;
+    padding: 20px;
+    margin-top: 2%;
+    text-align: center;
+    color: white;
+    font-family: 'Open sans', sans-serif;
+    font-weight: 25px;
+    font-size: 30px;
+}
+
+.event1 {
+    background-color: #1ea4da;
+    margin-bottom: 20px;
+    padding: 20px;
+    margin-top: 2%;
+    text-align: left;
+    color: white;
+    font-family: 'Open sans', sans-serif;
+    font-weight: 25px;
+    font-size: 30px;
+}
+.container {
+    width: 100%;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-width: 90vw !important;
+    flex-wrap: wrap;
+}
+
+.content .post-img{
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 0px;
+    height: 150px;
+    object-fit: cover;
+}
+.content {
+    min-width: 350px;
+    max-width: 350px;
+    height: 350px;
+    padding: 1em;
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    background: rgb(21, 152, 228);
+    box-shadow: 0 8px 32px  rgba(16, 26, 160, 0.37);
+    border-radius: 50px;
+}
+
+.content>h1{
+    margin-top: 20px;
+}
+
+
+.content:hover{
+    box-shadow: 3px 10px 30px 15px rgba(39, 67, 143, 0.603);
+    transition: 0.5s;
+}
+
+
+.btn{
+   font-weight: bold;
+   border: 3px solid darkblue;
+   color:black;
+   padding: 10px 20px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 20px;
+   margin-top: 20px;
+   margin-bottom: 5px;
+   transition-duration: 0.5s;
+   cursor: pointer;
+   border-radius:15px;
+}
+  
+.btn:hover{
+      background-color: white;
+      color: #031e36;
+      transform: scale(1.1);
+      transition: 0.5s;
+  }
+
+  @media (max-width: 574px){
+    .content {
+        width: revert;
+    }
+  }
+

@@ -17,14 +17,41 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
-var payload;
+var payload = null;
 
 mongoose.connect("mongodb+srv://admin-kavan:"+ process.env.MONGOKEY + "@cluster0.ke92r.mongodb.net/revampers").then(() => console.log("Connected")).catch(err => console.log(err));
 
+const userSchema = new mongoose.Schema({
+    username : String,
+    fName : String
+});
+
+const User = new mongoose.model("User", userSchema);
+
 app.get("/", (req, res) => {
-    payload = req.cookies["payload"];
+    payload = JSON.parse(req.cookies["payload"]);
+    console.log("In backend");
     console.log(payload);
-    res.render("index");
+    if (payload != undefined) {
+        console.log(payload);
+        const {identifier, customFieldInputValues} = payload;
+        console.log(identifier, customFieldInputValues);
+        const fName = customFieldInputValues["Full Name"];
+
+        User.findOne({username : identifier}, ((err, foundUser) => {
+            if (err) console.log(err);
+            else if (foundUser == undefined || foundUser == null) {
+                const newUser = new User({
+                    username : identifier,
+                    fName : fName
+                });
+                newUser.save();
+            }
+        }));
+        res.render("index");
+    } else {
+        res.redirect("/login");
+    }
 });
 
 app.get("/flauntZone", (req, res) => {

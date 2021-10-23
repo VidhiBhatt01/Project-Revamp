@@ -7,7 +7,7 @@
 
         <script src="https://websdk.sawolabs.com/sawo.min.js"></script>
         <script>
-            const payload = sessionStorage.getItem("payload");
+            const payload = getCookie("payload");
             if (payload) {
                 window.location.href = "/";
             }
@@ -16,14 +16,29 @@
                 identifierType: "email",
                 apiKey: "6e72516e-0231-4abd-b90f-65d38ce8db45",
                 onSuccess: (payload) => {
-                    sessionStorage.setItem("payload", JSON.stringify(payload));
+                    document.cookie = "payload="+JSON.stringify(payload);
                     window.location.href = "/";
                 },
             };
             var sawo = new Sawo(config);
             sawo.showForm();
 
-            document.cookie = "payload="+payload;
+
+            function getCookie(cname) {
+                let name = cname + "=";
+                let decodedCookie = decodeURIComponent(document.cookie);
+                let ca = decodedCookie.split(';');
+                for(let i = 0; i <ca.length; i++) {
+                  let c = ca[i];
+                  while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                  }
+                  if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                  }
+                }
+                return "";
+              }
         </script>
     </div>
 

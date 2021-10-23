@@ -15,12 +15,24 @@
         crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/bazaar.css">
-    <link rel="stylesheet" href="CSS/blogs.css">
-    <link rel="stylesheet" href="CSS/contact_us.css">
-    <link rel="stylesheet" href="CSS/diy_academy.css">
-    <link rel="stylesheet" href="CSS/flaunt_zone.css">
+    <link rel="stylesheet" href="/Project Revamp/CSS/style.css">
+    <link rel="stylesheet" href="/Project Revamp/CSS/bazaar.css">
+    <link rel="stylesheet" href="/Project Revamp/CSS/diy_academy.css">
+    <link rel="stylesheet" href="/Project Revamp/CSS/blogs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="/Project Revamp/CSS/flaunt_zone.css">
+
+    <link rel="stylesheet" href="/Project Revamp/FlauntZone/CSS/main.min.css">
+    <link rel="stylesheet" href="/Project Revamp/FlauntZone/CSS/style.css">
+    <link rel="stylesheet" href="/Project Revamp/FlauntZone/CSS/color.css">
+    <link rel="stylesheet" href="/Project Revamp/FlauntZone/CSS/responsive.css">
+    <link rel="stylesheet" href="/Project Revamp/CSS/index.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 
     <title>Revamp</title>
 </head>
@@ -45,6 +57,10 @@
                         <li><a href="flauntZone"><b>FlauntZone</b></a></li>
                         <li><a href="blogs"><b>Blogs</a></b></a></li>
                         <li><a href="bazaar"><b>Bazaar</b></a></li>
+
+                        <% if (logged == true) { %>
+                            <li><a href="logout"><b>Logout</b></a></li>
+                        <% } %>
                     </ul>
                 </div>
     </nav>

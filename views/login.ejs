@@ -9,7 +9,7 @@
         <script>
             const payload = getCookie("payload");
             console.log(payload);
-            if (payload) {
+            if (payload != "undefined" && payload != undefined) {
                 window.location.href = "/";
             }
             var config = {

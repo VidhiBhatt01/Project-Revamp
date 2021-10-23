@@ -1,4 +1,26 @@
 <%- include('header'); -%>
 
+    <div class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="promo-title">Welcome to Project Revamp!!</p>
+                    <p class="text">An organization trying to reduce the advance effects of climate change by reducing
+                        the waste generated.</p>
+                    <br>
+                    <h4>Our Motto: Enlighten-Educate-Empower 🎯</h4>
+
+                    <% if (logged == false) { %>
+                        <a href="/login"><button class="butt"> Login/Sign Up </button></a>
+                    <% } %>
+                </div>
+
+                <div class="col-md-6 text-center">
+                    <img class="img-fluid" src="/Project Revamp/Images/Project Revamp Logo1.png" alt="">
+                </div>
+            </div>
+        </div>
+        <img class="bottom-img" src="/Project Revamp/Images/wave1.png" alt="">
+    </div>
 
 <%- include('footer'); -%>

@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open sans',sans-serif;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.875rem;
+    margin-top: -1.5rem;
+}
+
+.col{
+    width: 50%;
+    justify-content: space-between;
+    border-radius: 20%;
+    padding: 25px;
+}
+
+.product .img{
+    width: 100%;
+    padding-top: 0px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.product{
+    margin-top: 3rem;
+    background-color:whitesmoke;
+    transition: 0.1s;
+    box-shadow: rgba(0,0,0,0.5) 0px 10px 15px;
+    border: #004aad;
+}
+
+.product-info{
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-info span{
+    font-weight: bold;
+}
+
+.product-info h3{
+    font-size: 1.1rem;
+}
+
+.product-info a{
+    text-decoration: none;
+}
+
+.btn{
+    
+    border: 3px solid#004aad;
+    color: black;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    border-radius:15px;
+   }
+
+.btn:hover{
+    background-color: white;
+    color: #031e36;
+    transform: scale(1.1);
+    transition: 0.5s;
+}

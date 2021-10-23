@@ -8,6 +8,7 @@
         <script src="https://websdk.sawolabs.com/sawo.min.js"></script>
         <script>
             const payload = getCookie("payload");
+            console.log(payload);
             if (payload) {
                 window.location.href = "/";
             }
@@ -22,7 +23,6 @@
             };
             var sawo = new Sawo(config);
             sawo.showForm();
-
 
             function getCookie(cname) {
                 let name = cname + "=";

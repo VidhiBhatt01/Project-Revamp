@@ -19,36 +19,41 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 var payload = null;
 
-mongoose.connect("mongodb+srv://admin-kavan:"+ process.env.MONGOKEY + "@cluster0.ke92r.mongodb.net/revampers").then(() => console.log("Connected")).catch(err => console.log(err));
+mongoose.connect("mongodb+srv://admin-kavan:" + process.env.MONGOKEY + "@cluster0.ke92r.mongodb.net/revampers").then(() => console.log("Connected")).catch(err => console.log(err));
 
 const userSchema = new mongoose.Schema({
-    username : String,
-    fName : String
+    username: String,
+    fName: String
 });
 
 const User = new mongoose.model("User", userSchema);
 
 app.get("/", (req, res) => {
-    payload = JSON.parse(req.cookies["payload"]);
-    console.log("In backend");
-    console.log(payload);
-    if (payload != undefined) {
+    const payloadCookies = req.cookies["payload"];
+    if (payloadCookies != undefined) {
+        payload = JSON.parse(payloadCookies);
+        console.log("In backend");
         console.log(payload);
-        const {identifier, customFieldInputValues} = payload;
-        console.log(identifier, customFieldInputValues);
-        const fName = customFieldInputValues["Full Name"];
+        if (payload != undefined) {
+            console.log(payload);
+            const { identifier, customFieldInputValues } = payload;
+            console.log(identifier, customFieldInputValues);
+            const fName = customFieldInputValues["Full Name"];
 
-        User.findOne({username : identifier}, ((err, foundUser) => {
-            if (err) console.log(err);
-            else if (foundUser == undefined || foundUser == null) {
-                const newUser = new User({
-                    username : identifier,
-                    fName : fName
-                });
-                newUser.save();
-            }
-        }));
-        res.render("index");
+            User.findOne({ username: identifier }, ((err, foundUser) => {
+                if (err) console.log(err);
+                else if (foundUser == undefined || foundUser == null) {
+                    const newUser = new User({
+                        username: identifier,
+                        fName: fName
+                    });
+                    newUser.save();
+                }
+            }));
+            res.render("index");
+        } else {
+            res.redirect("/login");
+        }
     } else {
         res.redirect("/login");
     }
@@ -71,7 +76,7 @@ app.get("/bazaar", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-    res.render("login", { SAWO_API: process.env.SAWO_API });
+    res.render("login");
 });
 
 app.listen("3000", console.log("Listening on port 3000"));

@@ -1,6 +1,8 @@
 import { config } from "dotenv";
 config();
 const SAWO_API = process.env.SAWO_API;
+import { CourierClient } from "@trycourier/courier";
+const courier = CourierClient({ authorizationToken: process.env.courierAPI });
 
 import { fileURLToPath } from "url";
 import path from "path";
@@ -32,12 +34,10 @@ app.get("/", (req, res) => {
     const payloadCookies = req.cookies["payload"];
     if (payloadCookies != undefined) {
         payload = JSON.parse(payloadCookies);
-        console.log("In backend");
-        console.log(payload);
+        // console.log("In backend");
+        // console.log(payload);
         if (payload != undefined) {
-            console.log(payload);
             const { identifier, customFieldInputValues } = payload;
-            console.log(identifier, customFieldInputValues);
             const fName = customFieldInputValues["Full Name"];
 
             User.findOne({ username: identifier }, ((err, foundUser) => {
@@ -46,6 +46,21 @@ app.get("/", (req, res) => {
                     const newUser = new User({
                         username: identifier,
                         fName: fName
+                    });
+
+                    // for sending a new Courier Email Message
+                    const { messageId } = courier.send({
+                        brand: "3PXQ2M35SK432XQ1NBS6CGTNQ2MQ",
+                        eventId: "personalized-welcome-email",
+                        recipientId: "19f2dd54-777d-491c-b584-de75015c41eb",
+                        profile: {
+                            email: identifier,
+                        },
+                        data: {
+                            firstname: fName,
+                        },
+                        override: {
+                        },
                     });
                     newUser.save();
                 }

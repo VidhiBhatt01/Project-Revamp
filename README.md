@@ -26,4 +26,4 @@
 - Basic concepts of session, cookies, session storage and all that stuff.
 
 # What's next for Project Revamp ? 📈
-Right now the website is mostly static. Only logging and signup works with saving that in database. But now we are aiming at making it more dynamic. Like saving all the real data in database. Having an admin panel will be a plus.
+Right now the website is mostly static. Only logging and signup works with saving that in database. But now we are aiming at making it more dynamic. Like saving all the real data in database. Having an admin panel will be a plus. We are planning to make the website more functional by adding advanced features.

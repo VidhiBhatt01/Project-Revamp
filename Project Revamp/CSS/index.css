@@ -245,6 +245,8 @@
     margin: 15px 10px;
 }
 
+
+
 .content:hover{
     box-shadow: 3px 10px 30px 15px rgba(39, 67, 143, 0.603);
     transition: 0.5s;

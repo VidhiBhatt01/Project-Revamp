@@ -1,5 +1,5 @@
 # Project-Revamp
-
+- A one place solution to tackle the waste generated.
 # Inspiration: 💡
 - Nowadays, people usually throw unecessary waste but they don't know that it can be used to make many new creative things.
 

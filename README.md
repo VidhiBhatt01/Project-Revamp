@@ -1,7 +1,9 @@
 Demo video: https://youtu.be/TJJumUwnxPE
 
 # Project-Revamp
+<img src="https://github.com/VidhiBhatt01/Project-Revamp/blob/main/Project%20Revamp/Images/Project%20Revamp%20Logo1.png" align="center">
 - A one place solution to tackle the waste generated.
+
 # Inspiration: 💡
 - Nowadays, people usually throw unecessary waste but they don't know that it can be used to make many new creative things.
 

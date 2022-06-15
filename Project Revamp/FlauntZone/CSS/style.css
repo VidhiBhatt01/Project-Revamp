@@ -1514,11 +1514,11 @@ form button {
     top: 0;
 }
 
-.menu {
+/* .menu {
     width: 2em;
     height: 2em;
     z-index: 2;
-}
+} */
 
 .menu .btn {
     position: absolute;
